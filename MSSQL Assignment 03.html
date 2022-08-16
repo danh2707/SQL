@@ -1,0 +1,15 @@
+
+create table Customers(
+Id int primary key identity(1,1),
+name varchar(225) not null,
+NumberCard varchar(100) not null unique ,
+address varchar(225) not null
+
+);
+create table Sub(
+Id int primary key identity(1,1),
+name varchar(225) not null ,
+phone varchar(20) not null unique,
+date datetime not null default GETDATE(),
+customerID  int not null foreign key references Customers(Id)
+);
